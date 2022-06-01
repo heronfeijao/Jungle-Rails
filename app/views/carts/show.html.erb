@@ -4,6 +4,9 @@
     <h1>My Cart</h1>
   </header>
 
+      <% if enhanced_cart.empty? %>
+      <h3 class="alert alert-success" role="alert">No items in the cart. Start adding some products. :)</h3>
+      <% else %>
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -16,7 +19,7 @@
       </thead>
       <tbody>
         <% enhanced_cart.each do |item| %>
-          <%= render 'item', product: item[:product], quantity: item[:quantity].to_i %>
+          <%= render "item", product: item[:product], quantity: item[:quantity].to_i %>
         <% end %>
       </tbody>
       <tfoot>
@@ -31,8 +34,10 @@
       </tfoot>
     </table>
   </div>
+      <% end %>
 
   <div class="row">
+  <% if !enhanced_cart.empty? %>
     <div class="col-xs-12">
       <%= form_tag orders_path do %>
         <script
@@ -47,6 +52,7 @@
         </script>
       <% end %>
     </div>
+    <% end %>
   </div>
 
 </section>
