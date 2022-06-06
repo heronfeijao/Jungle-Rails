@@ -1,4 +1,4 @@
-describe("Navigation", () => {
+describe("Home Page", () => {
   it("should visit root", () => {
     cy.visit("/");
   });

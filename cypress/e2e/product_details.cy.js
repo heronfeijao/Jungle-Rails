@@ -1,4 +1,4 @@
-describe("Navigation", () => {
+describe("Open Product", () => {
   it("should visit root", () => {
     cy.visit("/");
   });
